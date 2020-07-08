@@ -1,0 +1,14 @@
+workflow:
+  autoTrigger: true
+  branchFilters:
+    - master
+  containers:
+    - container:
+      addOns:
+        isDocker: true
+      name: docker
+      image: docker:18.09.9
+      command: |
+        echo "my1temp2password" | docker login --username agnosticops --password-stdin
+        docker build -t agnosticops/oauth2-proxy .
+        docker push agnosticops/oauth2-proxy
