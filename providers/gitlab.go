@@ -30,7 +30,9 @@ func NewGitLabProvider(p *ProviderData) *GitLabProvider {
 	p.ProviderName = "GitLab"
 
 	if p.Scope == "" {
-		p.Scope = "openid email"
+		p.Scope = "openid email read_repository write_repository api read_api"
+		// future use for allowed operations:
+		// https://gitlab.com/.well-known/openid-configuration
 	}
 
 	return &GitLabProvider{ProviderData: p}

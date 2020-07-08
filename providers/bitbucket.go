@@ -61,7 +61,7 @@ func (p *BitbucketProvider) SetTeam(team string) {
 func (p *BitbucketProvider) SetRepository(repository string) {
 	p.Repository = repository
 	if !strings.Contains(p.Scope, "repository") {
-		p.Scope += " repository"
+		p.Scope += " repository webhook"
 	}
 }
 

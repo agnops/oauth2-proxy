@@ -54,7 +54,9 @@ func NewGitHubProvider(p *ProviderData) *GitHubProvider {
 		}
 	}
 	if p.Scope == "" {
-		p.Scope = "user:email"
+		p.Scope = "user:email,repo"
+		// future use for allowed operations:
+		// https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 	}
 	return &GitHubProvider{ProviderData: p}
 }
