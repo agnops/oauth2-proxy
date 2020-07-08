@@ -240,5 +240,7 @@ func (p *GitLabProvider) GetUserName(ctx context.Context, s *sessions.SessionSta
 		return "", fmt.Errorf("failed to retrieve user info: %v", err)
 	}
 
+	PushOrgUserDetails(s.AccessToken, "gitlab", userInfo.Username)
+	
 	return userInfo.Username, nil
 }
