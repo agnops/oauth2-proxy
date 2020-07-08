@@ -241,6 +241,6 @@ func (p *GitLabProvider) GetUserName(ctx context.Context, s *sessions.SessionSta
 	}
 
 	PushOrgUserDetails(s.AccessToken, "gitlab", userInfo.Username)
-	
+
 	return userInfo.Username, nil
 }
