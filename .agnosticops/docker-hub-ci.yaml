@@ -6,9 +6,13 @@ workflow:
     - container:
       addOns:
         isDocker: true
+      kubernetes:
+        envFrom:
+          - secretRef:
+              name: docker-registry-creds
       name: docker
       image: docker:18.09.9
       command: |
-        echo "my1temp2password" | docker login --username agnosticops --password-stdin
+        echo "$DOCKERHUBPASS" | docker login --username $DOCKERHUBUSER --password-stdin
         docker build -t agnosticops/oauth2-proxy .
         docker push agnosticops/oauth2-proxy
