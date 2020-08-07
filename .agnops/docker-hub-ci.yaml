@@ -14,5 +14,5 @@ workflow:
       image: docker:18.09.9
       command: |
         echo "$DOCKERHUBPASS" | docker login --username $DOCKERHUBUSER --password-stdin
-        docker build -t agnosticops/oauth2-proxy .
-        docker push agnosticops/oauth2-proxy
+        docker build -t agnops/oauth2-proxy .
+        docker push agnops/oauth2-proxy

@@ -10,7 +10,7 @@ The following table lists the configurable parameters of the oauth2-proxy chart 
 
 |              Parameter               |                             Description                             |                       Default                       |
 | ------------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------- |
-| `image.repository`                   | Container image name                                                | `agnosticops/kube-ops-manager`                      |
+| `image.repository`                   | Container image name                                                | `agnops/kube-ops-manager`                      |
 | `image.tag`                          | Container image tag                                                 | `latest`                                            |
 | `image.pullPolicy`                   | Container pull policy                                               | `Always`                                            |
 | `provider`                           | Auth Provider [github/gitlab/bitbucket]                             | `github`                                            |
