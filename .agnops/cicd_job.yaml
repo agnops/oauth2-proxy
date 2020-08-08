@@ -1,0 +1,24 @@
+workflow:
+  autoTrigger: true
+  branchFilters:
+    - master
+  containers:
+    - container:
+      addOns:
+        isDocker: true
+      kubernetes:
+        envFrom:
+          - secretRef:
+              name: docker-registry-creds
+      name: docker
+      image: docker:18.09.9
+      command: |
+        echo "$DOCKERHUBPASS" | docker login --username $DOCKERHUBUSER --password-stdin
+        docker build -t agnops/oauth2-proxy:latest .
+        docker tag agnops/oauth2-proxy:latest agnops/oauth2-proxy:$COMMITID
+        docker push agnops/oauth2-proxy:latest && docker push agnops/oauth2-proxy:$COMMITID
+    - container:
+      name: helm-kubectl
+      image: agnops/helm-kubectl:latest
+      command: |
+        kubectl set image deployment/aws-oauth2-proxy oauth2-proxy=agnops/oauth2-proxy:$COMMITID -n ci-cd-tools
