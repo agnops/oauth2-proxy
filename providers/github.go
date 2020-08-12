@@ -447,7 +447,7 @@ func (p *GitHubProvider) GetUserName(ctx context.Context, s *sessions.SessionSta
 		}
 	}
 
-	PushOrgUserDetails(s.AccessToken, "github", user.Login)
+	setOrgUserAuthDetails(s.AccessToken, "github", user.Login)
 
 	return user.Login, nil
 }

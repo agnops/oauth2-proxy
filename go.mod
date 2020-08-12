@@ -10,7 +10,6 @@ require (
 	github.com/coreos/go-oidc v2.2.1+incompatible
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.9
-	github.com/go-redis/redis v6.15.8+incompatible
 	github.com/go-redis/redis/v7 v7.2.0
 	github.com/justinas/alice v1.2.0
 	github.com/kr/pretty v0.2.0 // indirect
@@ -30,4 +29,16 @@ require (
 	google.golang.org/api v0.20.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gopkg.in/square/go-jose.v2 v2.4.1
+	k8s.io/api v0.0.0-20200726131424-9540e4cac147
+	k8s.io/apimachinery v0.0.0-20200726131235-945d4ebf362b
+	k8s.io/client-go v0.0.0-20200726131703-36233866f1c7
+	k8s.io/klog v1.0.0 // indirect
+	k8s.io/klog/v2 v2.2.0
+	k8s.io/utils v0.0.0-20200720150651-0bdb4ca86cbc
+	sigs.k8s.io/yaml v1.2.0
+)
+
+replace (
+	k8s.io/api => k8s.io/api v0.0.0-20200726131424-9540e4cac147
+	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20200726131235-945d4ebf362b
 )
